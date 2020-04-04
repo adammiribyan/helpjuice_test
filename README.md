@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run `rails db:seed` to pre-populate the articles.
 
-Things you may want to cover:
+## ToDo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Add pagination for `search/analytics#show` for better UI and performance.
+- [ ] Initiate the `Search::QueryRecordingJob` only **after** the user clicks on a search result item, or leaves the search field.
+- [ ] Add an integration for the whole use flow of searching an article and the underlying analytics data being recorded.
+- [ ] Better mobile UI.
