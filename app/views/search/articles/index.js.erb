@@ -1,0 +1,7 @@
+<% if @articles.any? %>
+  <div data-controller="search-engagement">
+    <%= render @articles %>
+  </div>
+<% else %>
+  <%= render 'blank' %>
+<% end %>

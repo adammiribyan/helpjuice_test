@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HelpjuiceTest</title>
+    <title>Helpjuice (Test Project)</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller_name %>">
+    <header>
+      <%= image_tag 'https://allowee.herokuapp.com/assets/logo/gradient-dark-bab0b62fe96e00f80d3c7aefce4c2adfeed9ad8ee2abc6ee9204b94215f80349.png', class: 'logo align--center' %>
+
+      <nav class="topnav">
+        <%= link_to_unless_current 'Analytics', search_analytics_path, class: 'topnav__item' %>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

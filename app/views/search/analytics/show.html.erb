@@ -1,0 +1,25 @@
+<header class="heading">
+  <h1 class="align--centered">What Clients Look For</h1>
+  <p>A list of search queries made by your clients, click on an underlined query for more details.</p>
+</header>
+
+<table>
+  <thead>
+    <tr class="table100-head">
+      <th style="width: 50%;">Query</th>
+      <th class="align--centered">How Often</th>
+      <th class="align--centered">Last Occurrence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @queries.by_body.reverse_each do |body, queries, last_query| %>
+      <tr data-controller="search-query" data-search-query-url="<%= search_query_path(last_query, format: :js) %>">
+        <td class="<%= queries.count > 1 ? 'search-query--expandable' : '' %>">
+          <pre><%= body %></pre>
+        </td>
+        <td class="align--centered"><%= queries.count %></td>
+        <td class="align--centered"><%= last_query.created_at.to_s(:short) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

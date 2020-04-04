@@ -1,0 +1,52 @@
+.align--centered {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.input {
+  margin: 0;
+  padding: 0.5em;
+  resize: none;
+  max-width: 100%;
+  background-color: transparent;
+  border: 2px solid rgba(var(--color-purple), 0.6);
+  border-radius: 0.6rem;
+  line-height: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder {
+    color: rgba(var(--color-text), 1) !important; 
+  }
+
+  &--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  &--icon {
+    padding-left:2.6em;
+  }
+}
+
+body.analytics {
+  .topnav {
+    display: none;
+  }
+}
+
+.txt--bold {
+  font-weight: bold;
+}
