@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_192152) do
+ActiveRecord::Schema.define(version: 2020_04_05_134516) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
@@ -27,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_192152) do
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "creator_token"
+    t.index ["creator_token"], name: "index_search_queries_on_creator_token"
     t.index ["status"], name: "index_search_queries_on_status"
   end
 

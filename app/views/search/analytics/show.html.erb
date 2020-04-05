@@ -7,18 +7,22 @@
   <thead>
     <tr class="table100-head">
       <th style="width: 50%;">Query</th>
+      <th class="align--centered">Articles, #</th>
       <th class="align--centered">How Often</th>
+      <th class="align--centered">Users, #</th>
       <th class="align--centered">Last Occurrence</th>
     </tr>
   </thead>
   <tbody>
-    <% @queries.by_body.reverse_each do |body, queries, last_query| %>
-      <tr data-controller="search-query" data-search-query-url="<%= search_query_path(last_query, format: :js) %>">
-        <td class="<%= queries.count > 1 ? 'search-query--expandable' : '' %>">
+    <% @queries.reverse_chronologically.by_body.sort_by { |o| o[1].size }.reverse.each do |body, queries| %>
+      <tr>
+        <td>
           <pre><%= body %></pre>
         </td>
-        <td class="align--centered"><%= queries.count %></td>
-        <td class="align--centered"><%= last_query.created_at.to_s(:short) %></td>
+        <td class="align--centered"><%= queries.last.results_count %></td>
+        <td class="align--centered"><%= queries.size %></td>
+        <td class="align--centered"><%= queries.pluck(:creator_token).uniq.count %></td>
+        <td class="align--centered"><%= queries.last.updated_at.to_s(:short) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails' # CSS auto-prefixer.
 gem 'pg_search' # Better full-text search in postgres.
 gem 'sucker_punch', '~> 2.0' # Background jobs.
+gem 'edits' # Edit distance algorithms.
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
